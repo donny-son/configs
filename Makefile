@@ -1,14 +1,11 @@
-.PHONY: install
-install: to-local alacritty
-	echo "source ${HOME}/.config/zshconf/zsh_base" >> ${HOME}/.zshrc
-
 .PHONY: install-zsh
-zsh:
+install-zsh:
 	curl -fsSL https://raw.githubusercontent.com/donny-son/gh-zsh/main/gh-zsh.sh | bash
 	echo "source ${HOME}/.config/zshconf/zsh_base" >> ${HOME}/.zshrc
+	p10k configure
 
-.PHONY: alacritty
-alacritty:
+.PHONY: install-alacritty
+install-alacritty:
 	sudo add-apt-repository ppa:aslatter/ppa
 	sudo apt update && apt upgrade
 	sudo apt install -y alacritty
@@ -25,13 +22,13 @@ install-spacebar:
 	brew install cmacrae/formulae/spacebar
 	brew services start spacebar
 
-.PHONY: to-local
-to-local:
+.PHONY: install-mac
+install-mac: install-yabai install-spacebar install-zsh
+
+.PHONY: install
+install:
 	echo "COPYING CONFIGS TO THIS MACHINE..."
-	ln -si ./macwm/amethyst.yml ${HOME}/.amethyst.yml
-	ln -si ./macwm/yabairc ${HOME}/.yabairc
+	ln -s ./macwm/amethyst.yml ${HOME}/.amethyst.yml
+	ln -s ./macwm/yabairc ${HOME}/.yabairc
 	sudo chmod +x ./spacebar/spacebarrc
 	echo "Finished!"
-
-.PHONY: mac
-mac: install install-yabai install-spacebar
