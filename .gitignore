@@ -31,3 +31,11 @@ monitors.xml
 user-dirs.dirs
 user-dirs.locale
 *~
+asciinema
+coc
+configstore
+gatsby
+gcloud
+jgit
+pgcli
+.vscode
