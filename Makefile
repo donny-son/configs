@@ -4,7 +4,7 @@ install: to-local alacritty
 
 .PHONY: install-zsh
 zsh:
-	curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.sh | bash
+	curl -fsSL https://raw.githubusercontent.com/donny-son/gh-zsh/main/gh-zsh.sh | bash
 	echo "source ${HOME}/.config/zshconf/zsh_base" >> ${HOME}/.zshrc
 
 .PHONY: alacritty
