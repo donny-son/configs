@@ -8,8 +8,6 @@ alacritty:
 	sudo apt update && apt upgrade
 	sudo apt install -y alacritty
 
-
-#* Installation
 .PHONY: install-yabai
 install-yabai:
 	brew install koekeishiya/formulae/yabai
@@ -30,3 +28,5 @@ to-local:
 	sudo chmod +x ./spacebar/spacebarrc
 	echo "Finished!"
 
+.PHONY: mac
+mac: install install-yabai install-spacebar
