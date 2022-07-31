@@ -2,6 +2,11 @@
 install: to-local alacritty
 	echo "source ${HOME}/.config/zshconf/zsh_base" >> ${HOME}/.zshrc
 
+.PHONY: install-zsh
+zsh:
+	curl -fsSL https://raw.githubusercontent.com/gustavohellwig/gh-zsh/main/gh-zsh.sh | bash
+	echo "source ${HOME}/.config/zshconf/zsh_base" >> ${HOME}/.zshrc
+
 .PHONY: alacritty
 alacritty:
 	sudo add-apt-repository ppa:aslatter/ppa
