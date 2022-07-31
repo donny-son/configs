@@ -2,7 +2,8 @@
 
 ```bash
 mv ~/.config ~/.config.backup
-gh repo clone configs ~/.config
+git clone git@github.com:donny-son/configs.git ~/.config
+mv ~/.config.backup/* ~/.config
 ```
 
 After `make zsh`, configure powerline 10k theme with `p10k configure`.
