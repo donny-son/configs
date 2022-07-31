@@ -1,0 +1,16 @@
+alias vim="nvim"
+alias vi="nvim"
+alias v="nvim"
+
+alias nvimconfig="cd ~/.config/nvim && nvim"
+alias zshconfig="cd ~/.zshrc && nvim"
+alias alacrittyconfig="cd ~/.config/alacritty && nvim"
+alias wezconfig="cd ~/.config/wezterm && nvim"
+
+# Check for $HOME/Projects
+# gh repo clone Bulkrum/btt
+alias btt="cd ~/Projects/btt && nvim"
+
+# gh repo clone donny-son/brain-copy
+alias bb="cd ~/Projects/brain-copy && nvim"
+

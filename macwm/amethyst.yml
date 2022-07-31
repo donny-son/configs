@@ -1,0 +1,74 @@
+# $HOME/.amethyst.yml
+# Use tall and fullscreen layouts
+layouts:
+    - tall
+    - fullscreen
+    - column
+
+# Enable focus-follows-mouse
+mouse-follows-focus: false
+focus-follows-mouse: false
+
+# Add 10px margin between windows
+window-margins: true
+window-margin-size: 15
+screen-padding-bottom: 20
+
+# flaoting apps
+floating: [
+  "us.zoom.xos",
+  "com.apple.systempreferences",
+  "com.apple.MobileSMS",
+  "com.kakao.KakaoTalkMac"
+]
+float-small-windows: true
+enables-layout-hud-on-space-change: false
+
+# Add "command" to the default mods
+mod1:
+    - option
+mod2:
+    - option
+    - shift
+
+# Modify the amethyst relaunch to use x and not z
+relaunch-amethyst:
+    mod: mod2
+    key: z
+
+cycle-layout:
+    mod: mod1
+    key: y
+
+focus-cw:
+    mod: mod1
+    key: h
+
+focus-ccw:
+    mod: mod1
+    key: l
+
+shrink-main:
+    mod: mod1
+    key: j
+
+expand-main:
+    mod: mod1
+    key: k
+
+focus-main:
+    mod: mod1
+    key: enter
+
+swap-cw:
+    mod: mod2
+    key: h
+
+swap-ccw:
+    mod: mod2
+    key: l
+
+toggle-float:
+    mod: mod1
+    key: f
+
