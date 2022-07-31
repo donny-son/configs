@@ -38,4 +38,4 @@ gatsby
 gcloud
 jgit
 pgcli
-.vscode
+.vscode/*.log

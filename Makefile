@@ -16,19 +16,18 @@ install-yabai:
 	sudo yabai --install-sa
 	sudo yabai --load-sa
 	brew services start yabai
+	rm -f ${HOME}/.yabairc && ln -s ./macwm/yabairc ${HOME}/.yabairc
+
+.PHONY: install-amethyst
+install-amethyst:
+	brew install --cask amethyst
+	rm -f ${HOME}/.amethyst.yml && ln -s ./macwm/amethyst.yml ${HOME}/.amethyst.yml
 
 .PHONY: install-spacebar
 install-spacebar:
 	brew install cmacrae/formulae/spacebar
 	brew services start spacebar
+	sudo chmod +x ./spacebar/spacebarrc
 
 .PHONY: install-mac
-install-mac: install-yabai install-spacebar install-zsh
-
-.PHONY: install
-install:
-	echo "COPYING CONFIGS TO THIS MACHINE..."
-	ln -s ./macwm/amethyst.yml ${HOME}/.amethyst.yml
-	ln -s ./macwm/yabairc ${HOME}/.yabairc
-	sudo chmod +x ./spacebar/spacebarrc
-	echo "Finished!"
+install-mac: install-yabai install-spacebar install-zsh install-amethyst
