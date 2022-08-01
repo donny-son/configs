@@ -39,3 +39,4 @@ gcloud
 jgit
 pgcli
 .vscode/*.log
+.gsd-keyboard.settings-ported
