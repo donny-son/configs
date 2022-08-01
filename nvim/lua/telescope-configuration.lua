@@ -1,8 +1,10 @@
 require('telescope').setup {
   defaults = {
-    prompt_prefix = "🔭  "
+    prompt_prefix = "🔭  ",
+    sorting_strategy = "ascending"
   }
 }
+require('telescope').load_extension('env')
 
 -- Setup global config
 require('neoterm').setup({
@@ -10,9 +12,6 @@ require('neoterm').setup({
   mode = 'horizontal', -- vertical/horizontal/fullscreen
   noinsert = false -- disable entering insert mode when opening the neoterm window
 })
-
--- env search
-require('telescope').load_extension('env')
 
 -- color picker
 require("colortils").setup({
