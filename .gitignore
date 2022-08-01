@@ -39,6 +39,7 @@ gcloud
 jgit
 pgcli
 .vscode/*.log
+<<<<<<< HEAD
 bpytop/error.log
 containers/containers.conf
 containers/podman/machine/qemu/podman-machine-default.ign
