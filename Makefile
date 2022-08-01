@@ -1,8 +1,6 @@
 .PHONY: install-zsh
 install-zsh:
-	curl -fsSL https://raw.githubusercontent.com/donny-son/gh-zsh/main/gh-zsh.sh | bash
-	echo "source ${HOME}/.config/zshconf/zsh_base" >> ${HOME}/.zshrc
-	p10k configure
+	curl -fsSL https://raw.githubusercontent.com/donny-son/gh-zsh/main/gh-zsh.sh | bash 
 
 .PHONY: install-alacritty
 install-alacritty:
