@@ -17,7 +17,7 @@ window:
     decorations: none
 
 font:
-    family: BlexMono Nerd Font
+    family: Droid Sans Mono for Powerline Nerd Font Complete
     normal:
         style: Regular
     bold:
