@@ -39,3 +39,14 @@ gcloud
 jgit
 pgcli
 .vscode/*.log
+bpytop/error.log
+containers/containers.conf
+containers/podman/machine/qemu/podman-machine-default.ign
+containers/podman/machine/qemu/podman-machine-default.json
+create-mac-symlink.sh
+fish/fish_variables
+htop/htoprc
+iterm2-profiles
+logo
+obsidianDefault
+rectangle/rectangle_conf.json
