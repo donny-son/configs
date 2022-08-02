@@ -3,7 +3,7 @@ return {
   font = wezterm.font({
     family = "FiraCode Nerd Font Mono",
   }),
-  font_size = 12,
+  font_size = 14,
   color_scheme = "BlulocoDark",
   default_cursor_style = "BlinkingBlock",
   cursor_blink_ease_in = "Linear",
