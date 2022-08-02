@@ -14,6 +14,11 @@ install-nvm:
 install-rust:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+.PHONY: install-wezterm
+install-wezterm:
+	curl -LO  https://github.com/wez/wezterm/releases/download/20220624-141144-bd1b7c5d/wezterm-20220624-141144-bd1b7c5d.Ubuntu22.04.deb && sudo apt install -y ./wezterm-20220624-141144-bd1b7c5d.Ubuntu20.04.deb
+
+
 .PHONY: install-vimplug
 install-vimplug:
 	sh install-vimplug.sh
