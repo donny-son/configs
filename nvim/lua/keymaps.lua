@@ -51,6 +51,8 @@ vim.keymap.set('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>'
   { remap = false, desc = 'Telescope search for word in current buffer' })
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>',
   { remap = false, desc = 'Telescope search for diagnostics' })
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope file_browser<cr>',
+  { remap = false, desc = 'Telescope search for file browser' })
 
 -- neogit
 vim.keymap.set(

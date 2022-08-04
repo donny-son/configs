@@ -28,5 +28,13 @@ lua require('colorscheme')
 
 autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
 autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
+if exists("g:neovide")
+  lua require('neovide-config')
+  let g:neovide_transparency=0.9
+  let g:neovide_refresh_rate=120
+  let g:neovide_cursor_vfx_mode = "pixiedust"
+else
+  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
+endif
+
