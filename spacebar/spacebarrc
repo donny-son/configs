@@ -5,7 +5,7 @@ spacebar -m config height               20
 spacebar -m config width                5
 spacebar -m config radius               3
 spacebar -m config placement            interior
-spacebar -m config active_color         0xff00ff00
+spacebar -m config active_color         0xffffffff
 spacebar -m config normal_color         0xff555555
 spacebar -m config title                on
 spacebar -m config spaces               on
@@ -29,4 +29,4 @@ spacebar -m config space_icon_strip     I II III IV V VI VII VIII IX X
 spacebar -m config space_icon           
 spacebar -m config clock_icon           
 spacebar -m config dnd_icon             
-spacebar -m config clock_format         "%Y.%m.%d.%H%M"
+spacebar -m config clock_format         "%Y.%m.%d.%H:%M"
