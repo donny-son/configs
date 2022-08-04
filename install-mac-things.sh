@@ -9,13 +9,15 @@ if [[ "$OS" == "Darwin" ]] ; then
 	brew install ripgrep
 	brew install --HEAD neovim
 	brew install --cask wez/wezterm/wezterm-nightly
+	brew install koekeishiya/formulae/skhd
 	sudo yabai --install-sa
 	sudo yabai --load-sa
 	brew services start yabai
 	brew services start spacebar
-	rm -f ${HOME}/.yabairc && ln -s ./macwm/yabairc ${HOME}/.yabairc
-	rm -f ${HOME}/.amethyst.yml && ln -s ./macwm/amethyst.yml ${HOME}/.amethyst.yml
+	brew services start skhd
 	sudo chmod +x ./spacebar/spacebarrc
+	sudo chmod +x ./yabai/yabairc
+	sudo chmod +x ./skhd/skhdrc
 else
     echo "This script is only supported on macOS."
     exit 0
