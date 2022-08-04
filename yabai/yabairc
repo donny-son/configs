@@ -7,7 +7,7 @@ yabai -m config window_border_width 10
 yabai -m config active_window_border_color 0xf0f00f0f
 
 # Paddings
-yabai -m config bottom_padding 20
+yabai -m config bottom_padding 30
 yabai -m config window_gap 10
 yabai -m config top_padding 10
 yabai -m config left_padding 10
