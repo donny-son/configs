@@ -33,7 +33,7 @@ if exists("g:neovide")
   lua require('neovide-config')
   let g:neovide_transparency=0.9
   let g:neovide_refresh_rate=120
-  let g:neovide_cursor_vfx_mode = "pixiedust"
+  let g:neovide_cursor_vfx_mode = "railgun"
 else
   autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
 endif
