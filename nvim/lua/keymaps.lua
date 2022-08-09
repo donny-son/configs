@@ -1,3 +1,54 @@
+local wkl = require('which-key')
+vim.cmd('autocmd FileType * lua SetKeybinds()')
+function SetKeybinds()
+  local fileTy = vim.api.nvim_buf_get_option(0, "filetype")
+  local opts = { prefix = '<leader>', buffer = 0 }
+  if fileTy == 'python' then
+    wkl.register({
+      t = {
+        name = "Debug Python",
+        t = { "<cmd>lua require('dap-python').test_method()<CR>", "Test Function" },
+        c = { "<cmd>lua require('dap-python').test_class()<CR>", "Test Class" },
+        u = { "<cmd>!python -m unittest %<CR>", "Run Unittest" },
+        p = { "<cmd>!python -m pytest %<CR>", "Run Pytest" },
+      }
+    }, opts)
+  elseif fileTy == 'sh' then
+    wkl.register({
+      t = {
+        name = "Debug Python",
+        t = { "<cmd>lua require('dap-go').debug_test()<CR>", "Test Go" },
+      }
+    }, opts)
+  end
+end
+
+-- vim-test
+vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest<CR>", { desc = "Test Nearset" })
+vim.keymap.set("n", "<leader>tT", "<cmd>TestFile<CR>", { desc = "Test File" })
+vim.keymap.set("n", "<leader>tl", "<cmd>TestSuite<CR>", { desc = "Test Suite" })
+vim.keymap.set("n", "<leader>tg", "<cmd>TestVisit<CR>", { desc = "Test Visite" })
+
+-- nvim dap
+vim.keymap.set("n", "<leader>dd", ":lua require'dap'.continue()<CR>",
+  { desc = "Toggle debugger & continue to breakpoint" }) -- start debugger
+
+-- standard movements for stepping in and out
+vim.keymap.set("n", "<leader>dj", ":lua require'dap'.step_into()<CR>",
+  { desc = "Debug | Step Into" })
+vim.keymap.set("n", "<leader>dk", ":lua require'dap'.step_out()<CR>",
+  { desc = "Debug | Step Out" })
+vim.keymap.set("n", "<leader>dn", ":lua require'dap'.step_over()<CR>",
+  { desc = "Debug | Step Over | Next line" })
+vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>",
+  { desc = "Debug | Toggle Breakpoint" })
+vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+  { desc = "Debug | Toggle Conditional Breakpoint" })
+vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>",
+  { desc = "Debug | Open REPL" })
+vim.keymap.set("n", "<leader>dq", ":lua require'dap'.terminate()<CR>",
+  { desc = "Debug | Quit Debugger" })
+
 -- jj -> <Esc>
 vim.keymap.set('i', 'jj', '<Esc>',
   { remap = true, desc = 'double j to escape' })
@@ -76,8 +127,7 @@ vim.keymap.set('n', '<leader>DB', '<cmd>DBUIToggle<cr>',
 vim.keymap.set('n', '<leader>md', '<Plug>MarkdownPreviewToggle',
   { remap = false, silent = false, desc = 'Open markdown preview in browser' })
 
--- diagnostics
--- Lua
+-- trouble
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
   { silent = true, noremap = true, desc = 'Toggle Trouble' }
 )

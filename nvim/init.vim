@@ -37,4 +37,3 @@ if exists("g:neovide")
 else
   autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | exe 'Telescope find_files' | endif
 endif
-

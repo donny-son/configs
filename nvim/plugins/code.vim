@@ -1,1 +1,2 @@
 Plug 'jghauser/fold-cycle.nvim' " Code folding
+Plug 'folke/which-key.nvim'
