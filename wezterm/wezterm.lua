@@ -1,9 +1,9 @@
 local wezterm = require 'wezterm';
 return {
   font = wezterm.font({
-    family = "FiraCode Nerd Font Mono",
+    family = "Hurmit Nerd Font Mono",
   }),
-  font_size = 14,
+  font_size = 18,
   color_scheme = "SynthwaveAlpha",
   default_cursor_style = "BlinkingBlock",
   cursor_blink_ease_in = "Linear",
