@@ -18,13 +18,13 @@ window:
 
 font:
     normal:
-        family: FiraCode Nerd Font 
+        family: Hack
         style: Regular
     bold:
-        family: FiraCode Nerd Font
+        family: Hack
         style: Bold
     italic:
-        family: FiraCode Nerd Font
+        family: Hack
         style: Italic
     size: 15
 colors:
