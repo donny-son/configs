@@ -164,14 +164,15 @@ require 'lspconfig'.sumneko_lua.setup {
   on_attach = on_attach,
 }
 
--- python(pyright) >> npm i -g pyright
--- require 'lspconfig'.pyright.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
 
 -- python(jedi) >> poetry add jedi jedi-language-server
 require 'lspconfig'.jedi_language_server.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- python(pyright) >> npm i -g pyright
+require 'lspconfig'.pyright.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
