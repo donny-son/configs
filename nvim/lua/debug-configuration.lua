@@ -5,39 +5,12 @@ dapgo.setup();
 -- nvim-dap-python
 local venv = os.getenv("VIRTUAL_ENV");
 local dappython = require('dap-python');
+dappython.test_runner = 'pytest'
 dappython.setup(
   string.format("%s/bin/python", venv)
 )
 
 local dap = require('dap');
-dap.adapters.python = {
-  type = 'executable';
-  command = string.format("%s/bin/python", venv);
-  args = { '-m', 'debugpy.adapter' };
-}
-
-dap.configurations.python = {
-  {
-    type = 'python';
-    request = 'launch';
-    name = "Launch Current File";
-    program = "${file}";
-    pythonPath = function()
-      local cwd = vim.fn.getcwd()
-      if vim.fn.executable(venv .. '/bin/python') == 1 then
-        return venv .. '/bin/python'
-      elseif vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
-        return cwd .. '/venv/bin/python'
-      elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
-        return cwd .. '/.venv/bin/python'
-      else
-        error('Python Virtual Environment not found. Please create, activate and reopen editor.')
-      end
-    end;
-  },
-}
-
-
 
 -- remember to delete vscode launch.json trailing comma
 require('dap.ext.vscode').load_launchjs()
@@ -56,8 +29,6 @@ require("dapui").setup({
     repl = "r",
     toggle = "t",
   },
-  -- Expand lines larger than the window
-  -- Requires >= 0.7
   expand_lines = vim.fn.has("nvim-0.7"),
   layouts = {
     {
