@@ -28,8 +28,12 @@ inoremap <c-q> <Esc><cmd>NeotermToggle<CR>
 tnoremap <c-q> <c-\><c-n><cmd>NeotermToggle<CR>
 
 " luasnip
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-imap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+" imap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>  " some problem
+" with telescope keymap settings.
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+nnoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+nnoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 
 snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>

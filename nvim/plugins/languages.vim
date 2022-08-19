@@ -27,6 +27,7 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'jalvesaq/Nvim-R', { 'branch': 'stable' }
 Plug 'lukas-reineke/lsp-format.nvim'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'weilbith/nvim-code-action-menu'

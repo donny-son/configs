@@ -1,9 +1,13 @@
 # Markdown
 
+# custom
+snippet newref
+	- ${1:text} ... [${1:text}](../1_LitNotes/notes/${1:text}.md)
+
 # Includes octopress (http://octopress.org/) snippets
 
 # The suffix `c` stands for "Clipboard".
-
+# defaults
 snippet [
 	[${1:text}](https://${2:address})
 snippet [*
@@ -97,15 +101,15 @@ snippet blockquote-link
 	{% endblockquote %}
 
 snippet ```
-	\`\`\`${1}
+	```${1}
 	${0:${VISUAL}}
-	\`\`\`
+	```
 
 # Language.
 snippet ```l
-	\`\`\`${1:language}
+	```${1:language}
 	${2:code}
-	\`\`\`
+	```
 
 snippet codeblock-short
 	{% codeblock %}

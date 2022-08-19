@@ -114,9 +114,9 @@ vim.keymap.set(
 )
 
 -- bufferline
-vim.keymap.set('n', '<Tab>', '<cmd>BufferLineCycleNext<cr>',
+vim.keymap.set('n', '<leader>p', '<cmd>BufferLineCycleNext<cr>',
   { remap = false, silent = true, desc = 'Move to next buffer' })
-vim.keymap.set('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<cr>',
+vim.keymap.set('n', '<leader>o', '<cmd>BufferLineCyclePrev<cr>',
   { remap = false, silent = true, desc = 'Move to previous buffer' })
 
 -- database
