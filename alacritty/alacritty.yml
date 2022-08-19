@@ -18,13 +18,13 @@ window:
 
 font:
     normal:
-        family: Hack
+        family: MesloLGS NF
         style: Regular
     bold:
-        family: Hack
+        family: MesloLGS NF
         style: Bold
     italic:
-        family: Hack
+        family: MesloLGS NF
         style: Italic
     size: 15
 colors:
