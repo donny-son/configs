@@ -23,9 +23,9 @@ inoremap <c-p> <Esc>:NvimTreeFindFileToggle<CR>
 tnoremap <c-p> <c-\><c-n>:NvimTreeFindFileToggle<CR>
 
 " terminal
-nnoremap <c-q> <cmd>NeotermToggle<CR>
-inoremap <c-q> <Esc><cmd>NeotermToggle<CR>
-tnoremap <c-q> <c-\><c-n><cmd>NeotermToggle<CR>
+nnoremap <c-t> <cmd>NeotermToggle<CR>
+inoremap <c-t> <Esc><cmd>NeotermToggle<CR>
+tnoremap <c-t> <c-\><c-n><cmd>NeotermToggle<CR>
 
 " luasnip
 " imap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>  " some problem
