@@ -3,8 +3,21 @@ snippet imp
 snippet from
 	from ${1:package} import ${0:module}
 
-# Custom Docstring
-snippet docs
+# Custom Class Docstring
+snippet cdocs
+	"""${1:summary}
+
+	${2:detail}
+
+	Args:
+			${3:param1} (${4:param1 type}): ${5:param1 desc}
+
+	Attributes:
+			${6:attr1}: ${7:attr1 desc}
+	"""
+
+# Custom Function Docstring
+snippet ddocs
 	"""${1:summary}
 
 	${2:detail}
