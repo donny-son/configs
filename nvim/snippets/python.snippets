@@ -1,17 +1,24 @@
-snippet #!
-	#!/usr/bin/env python3
-snippet #!2
-	#!/usr/bin/env python2
-	# -*- coding: utf-8 -*-
-snippet #!3
-	#!/usr/bin/env python3
 snippet imp
 	import ${0:module}
-snippet uni
-	def __unicode__(self):
-		${0:representation}
 snippet from
 	from ${1:package} import ${0:module}
+
+# Custom Docstring
+snippet docs
+	"""${1:summary}
+
+	${2:detail}
+
+	Args:
+			${3:param1} (${4:param1 type}): ${5:param1 desc}
+
+	Returns:
+			${6:return}: ${7:return desc}
+
+	Raises:
+			${8:raise error1}: ${9:raise error1 desc}
+	"""
+
 # Module Docstring
 snippet docs
 	"""
@@ -21,10 +28,6 @@ snippet docs
 	Github: `g:snips_github`
 	Description: ${0}
 	"""
-
-# Unittest skip
-snippet sk "skip unittests" b
-	@unittest.skip(${1:skip_reason})
 
 snippet wh
 	while ${1:condition}:
