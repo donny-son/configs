@@ -6,3 +6,4 @@ Plug 'declancm/cinnamon.nvim'
 Plug 'nvim-colortils/colortils.nvim'
 Plug 'j-hui/fidget.nvim'
 Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
+Plug 'segeljakt/vim-silicon'

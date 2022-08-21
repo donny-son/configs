@@ -217,6 +217,18 @@ lspkind.init()
 
 -- completion configuration
 local cmp = require('cmp')
+cmp.setup.cmdline(
+  ':', {
+  sources = {
+    { name = 'cmdline' }
+  }
+})
+cmp.setup.cmdline(
+  '/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
 cmp.setup({
   insert = true,
   snippet = {
