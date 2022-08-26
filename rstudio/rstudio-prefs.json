@@ -1,3 +1,6 @@
 {
-    "jobs_tab_visibility": "shown"
+    "jobs_tab_visibility": "shown",
+    "initial_working_directory": "~",
+    "editor_theme": "Cobalt",
+    "posix_terminal_shell": "zsh"
 }

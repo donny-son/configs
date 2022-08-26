@@ -25,8 +25,8 @@ spacebar -m config battery_icon_color   0xffd75f5f
 spacebar -m config dnd_icon_color       0xffa8a8a8
 spacebar -m config clock_icon_color     0xffa8a8a8
 spacebar -m config power_icon_strip      
-spacebar -m config space_icon_strip     I II III IV V VI VII VIII IX X
+spacebar -m config space_icon_strip     1 2 3 4 5 6 7 8 9
 spacebar -m config space_icon           
-spacebar -m config clock_icon           
+spacebar -m config clock_icon           🕖
 spacebar -m config dnd_icon             
 spacebar -m config clock_format         "%Y.%m.%d.%H:%M"
