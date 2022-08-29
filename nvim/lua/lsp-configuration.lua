@@ -172,10 +172,10 @@ require 'lspconfig'.jedi_language_server.setup {
 }
 
 -- python(pyright) >> npm i -g pyright
-require 'lspconfig'.pyright.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.pyright.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 -- vimscript
 require 'lspconfig'.vimls.setup {
