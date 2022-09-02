@@ -4,13 +4,9 @@ yabai -m config layout bsp
 # Borders
 yabai -m config window_border on
 yabai -m config window_border_width 10
-yabai -m config active_window_border_color 0xf0f00f0f
-yabai -m config normal_window_border_color 0xff555555
-yabai -m config insert_feedback_color 0xffd75f5f
+yabai -m config active_window_border_color 0xFFFCC000
+yabai -m config normal_window_border_color 0xFF2E3440
 yabai -m config window_shadow on
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 8.0
-
 
 # Paddings
 yabai -m config bottom_padding 30

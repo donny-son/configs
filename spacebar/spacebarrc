@@ -5,7 +5,7 @@ spacebar -m config height               20
 spacebar -m config width                5
 spacebar -m config radius               3
 spacebar -m config placement            interior
-spacebar -m config active_color         0xffffffff
+spacebar -m config active_color         0xfffdd219
 spacebar -m config normal_color         0xff555555
 spacebar -m config title                on
 spacebar -m config spaces               on
