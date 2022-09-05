@@ -4,7 +4,7 @@ return {
     family = "Hurmit Nerd Font Mono",
   }),
   font_size = 18,
-  color_scheme = "SynthwaveAlpha",
+  color_scheme = "Sequoia Moonlight",
   default_cursor_style = "BlinkingBlock",
   cursor_blink_ease_in = "Linear",
   cursor_blink_ease_out = "Linear",

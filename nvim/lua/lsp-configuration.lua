@@ -109,10 +109,10 @@ require 'lspconfig'.bashls.setup {
 }
 
 -- typescript >> npm install -g typescript typescript-language-server
-require 'lspconfig'.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.tsserver.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 -- solidity >> npm i -g solidity-language-server
 require 'lspconfig'.solidity_ls.setup {
