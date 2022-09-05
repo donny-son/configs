@@ -1,8 +1,8 @@
-require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
+require("nvim-tree").setup {
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = false,
-  hijack_cursor = false,
+  hijack_cursor = true,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
@@ -10,9 +10,9 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
   open_on_setup_file = false,
   open_on_tab = false,
   sort_by = "name",
-  update_cwd = false,
+  update_cwd = true,
   reload_on_bufenter = true,
-  respect_buf_cwd = false,
+  respect_buf_cwd = true,
   view = {
     adaptive_size = false,
     centralize_selection = false,
@@ -89,9 +89,8 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
-    update_cwd = false,
-    ignore_list = {},
+    enable = true,
+    update_cwd = true,
   },
   ignore_ft_on_setup = {},
   system_open = {
@@ -165,4 +164,4 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}

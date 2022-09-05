@@ -18,9 +18,9 @@ function! CreateFile(tfilename)
 endfunction
 
 " Explorer
-nnoremap <c-p> :NvimTreeFindFileToggle<CR>
-inoremap <c-p> <Esc>:NvimTreeFindFileToggle<CR>
-tnoremap <c-p> <c-\><c-n>:NvimTreeFindFileToggle<CR>
+nnoremap <silent><c-p> :NvimTreeFindFileToggle<CR>
+inoremap <silent><c-p> <Esc>:NvimTreeFindFileToggle<CR>
+tnoremap <silent><c-p> <c-\><c-n>:NvimTreeFindFileToggle<CR>
 
 " terminal
 nnoremap <c-t> <cmd>NeotermToggle<CR>
