@@ -166,16 +166,19 @@ require 'lspconfig'.sumneko_lua.setup {
 
 
 -- python(jedi) >> poetry add jedi jedi-language-server
+local lspconfig_util = require 'lspconfig.util'
+local pyproject_root = lspconfig_util.root_pattern('pyproject.toml')
 require 'lspconfig'.jedi_language_server.setup {
+  root_dir = pyproject_root,
   capabilities = capabilities,
   on_attach = on_attach,
 }
 
 -- python(pyright) >> npm i -g pyright
--- require 'lspconfig'.pyright.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
+require 'lspconfig'.pyright.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- vimscript
 require 'lspconfig'.vimls.setup {
