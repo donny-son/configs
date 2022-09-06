@@ -42,35 +42,6 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "right_command"
-                                },
-                                "to": [
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "^com\\.apple\\.keylayout\\.ABC",
-                                            "language": "^en$"
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "right_option"
-                                },
-                                "to": [
-                                    {
-                                        "select_input_source": {
-                                            "input_mode_id": "^com\\.apple\\.inputmethod\\.Korean\\.2SetKorean",
-                                            "input_source_id": "^com\\.apple\\.inputmethod\\.Korean\\.2SetKorean",
-                                            "language": "^ko$"
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
                                     "key_code": "left_shift",
                                     "modifiers": {
                                         "optional": [
@@ -1386,7 +1357,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "dictation"
+                            "key_code": "f5"
                         }
                     ]
                 },
