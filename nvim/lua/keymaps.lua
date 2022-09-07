@@ -93,7 +93,8 @@ vim.keymap.set(
 -- trouble
 --
 -- telescope
-vim.keymap.set('n', '<leader><Space>', '<cmd>Telescope live_grep<cr>',
+vim.keymap.set('n', '<leader><Space>',
+  '<cmd>lua require("telescope.builtin").live_grep({glob_pattern = "!node_modules"})<cr>',
   { remap = false, desc = 'Telescope find files by filename' })
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>',
   { remap = false, desc = 'Telescope grep files' })
