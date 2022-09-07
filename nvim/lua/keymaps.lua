@@ -89,6 +89,9 @@ vim.keymap.set(
   { remap = false, desc = 'Refresh and PlugInstall' }
 )
 
+
+-- trouble
+--
 -- telescope
 vim.keymap.set('n', '<leader><Space>', '<cmd>Telescope live_grep<cr>',
   { remap = false, desc = 'Telescope find files by filename' })
@@ -98,11 +101,9 @@ vim.keymap.set('n', '<leader>fk', '<cmd>Telescope keymaps<cr>',
   { remap = false, desc = 'Telescope Keymaps' })
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>',
   { remap = false, desc = 'Telescope search for help' })
-vim.keymap.set('n', '<leader>fw', '<cmd>Telescope current_buffer_fuzzy_find<cr>',
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope current_buffer_fuzzy_find<cr>',
   { remap = false, desc = 'Telescope search for word in current buffer' })
-vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>',
-  { remap = false, desc = 'Telescope search for diagnostics' })
-vim.keymap.set('n', '<leader>fb', '<cmd>Telescope file_browser<cr>',
+vim.keymap.set('n', '<leader>fB', '<cmd>Telescope file_browser<cr>',
   { remap = false, desc = 'Telescope search for file browser' })
 
 -- neogit
@@ -128,7 +129,7 @@ vim.keymap.set('n', '<leader>md', '<Plug>MarkdownPreviewToggle',
   { remap = false, silent = false, desc = 'Open markdown preview in browser' })
 
 -- trouble
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
   { silent = true, noremap = true, desc = 'Toggle Trouble' }
 )
 vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",
