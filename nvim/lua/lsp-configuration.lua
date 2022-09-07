@@ -22,9 +22,10 @@ require 'lsp-format'.setup {
 }
 
 -- attach when lsp server is triggered
-local on_attach = function(client)
+local on_attach = function(client, bufnr)
   require 'lsp-format'.on_attach(client)
-  require 'lsp_signature'.on_attach()
+  require 'lsp_signature'.on_attach(client, bufnr)
+  require 'tailwindcss-colors'.buf_attach(bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
@@ -307,10 +308,10 @@ require 'lspconfig'.volar.setup {
   on_attach = on_attach,
 }
 -- vue | vuels
-require 'lspconfig'.vuels.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.vuels.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 -- eslint, null-ls
 local null_ls = require("null-ls")
