@@ -44,10 +44,13 @@ Plug 'TimUntersberger/neogit'
 Plug 'folke/trouble.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/eslint.nvim'
+Plug 'leafOfTree/vim-matchtag'
 
 
 let test#strategy = "neovim"
 let test#neovim#term_position = "botright"
+let g:vim_matchtag_enable_by_default = 1
+let g:vim_matchtag_files = '*.html,*.xml,*.js,*.jsx,*.vue,*.svelte,*.jsp'
 let g:copilot_filetypes = {
 \ '*': v:false,
 \ 'python': v:true,
