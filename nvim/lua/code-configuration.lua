@@ -6,3 +6,6 @@ require('fold-cycle').setup({
 
 -- diagnostics
 require("trouble").setup {}
+
+-- markdown code injection
+require('femaco').setup {}
