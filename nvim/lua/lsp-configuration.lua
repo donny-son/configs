@@ -308,10 +308,10 @@ require 'lspconfig'.volar.setup {
   on_attach = on_attach,
 }
 -- vue | vuels
-require 'lspconfig'.vuels.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.vuels.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 -- eslint, null-ls
 local null_ls = require("null-ls")

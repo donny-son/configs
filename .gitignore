@@ -39,7 +39,6 @@ gcloud
 jgit
 pgcli
 .vscode/*.log
-<<<<<<< HEAD
 bpytop/error.log
 containers/containers.conf
 containers/podman/machine/qemu/podman-machine-default.ign
@@ -52,3 +51,4 @@ logo
 obsidianDefault
 rectangle/rectangle_conf.json
 .gsd-keyboard.settings-ported
+*.DS_Store
