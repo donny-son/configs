@@ -248,12 +248,12 @@ cmp.setup({
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
+        nvim_lsp = "[📚]",
+        path = "[📁]",
         luasnip = "[✂️]",
         buffer = "[📄]",
-        nvim_lsp = "[📚]",
-        nvim_lua = "[]",
-        path = "[📁]",
         cmp_tabnine = "[🤖]",
+        nvim_lua = "[]",
         emoji = "[🌭]",
         calc = "[]",
       }
