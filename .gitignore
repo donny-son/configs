@@ -52,3 +52,4 @@ obsidianDefault
 rectangle/rectangle_conf.json
 .gsd-keyboard.settings-ported
 *.DS_Store
+pudb/
