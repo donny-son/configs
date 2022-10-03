@@ -14,7 +14,6 @@ source $HOME/.config/nvim/plugins/colorscheme.vim
 call plug#end()
 
 source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
-source $HOME/.config/nvim/post-plugins/panemanagement-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
 
 lua require('nvim-tree-configuration')
