@@ -37,6 +37,12 @@ end
 -- LANGUAGES --
 ---------------
 
+-- svelte language server >> npm i -g svelte-language-server
+require 'lspconfig'.svelte.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
 -- dot language server >> npm i -g dot-language-server
 require 'lspconfig'.dotls.setup {
   capabilities = capabilities,
