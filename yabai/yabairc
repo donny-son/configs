@@ -3,20 +3,22 @@ yabai -m config layout bsp
 
 # Borders
 yabai -m config window_border on
-yabai -m config window_border_width 10
-yabai -m config active_window_border_color 0xFFFCC000
-yabai -m config normal_window_border_color 0xFF2E3440
+yabai -m config window_border_width 3
+yabai -m config active_window_border_color 0xFF34eba8
+yabai -m config normal_window_border_color 0xFF000000
 yabai -m config window_shadow on
 
 # Paddings
-yabai -m config bottom_padding 30
-yabai -m config top_padding 10
-yabai -m config left_padding 10
-yabai -m config right_padding 10
-yabai -m config window_gap 10
+yabai -m config bottom_padding 24
+yabai -m config top_padding 6
+yabai -m config left_padding 6
+yabai -m config right_padding 6
+yabai -m config window_gap 6
 
 # Exceptions
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Reminders$" manage=off
+yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
 yabai -m rule --add app="Settings$" manage=off
 yabai -m rule --add app="^Calender$" manage=off
 yabai -m rule --add app="^FaceTime$" manage=off
