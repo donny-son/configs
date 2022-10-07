@@ -1,4 +1,5 @@
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'leafOfTree/vim-svelte-plugin'
 " Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
