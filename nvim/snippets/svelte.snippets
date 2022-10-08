@@ -1,1 +1,28 @@
 extends html, javascript, css
+
+snippet await "svelte await block"
+	{#await ${1:promise}}
+	${2: waiting}
+	{:then ${3: value}}
+	$3
+	{:catch ${4:error}}
+	$4
+	{/await}
+
+snippet each "svelte each block"
+	{#each ${1: items} as ${2: item} ($2.${3: identifier})}
+	${0}
+	{/each}
+
+snippet elif "svelte else if block"
+	{#if ${1: condition}}
+	${2}
+	{:else if ${3: condition}}
+	${4}
+	{:else}
+	${5}
+	{/if}
+
+snippet  xl "export let"
+export let ${1: varname} = '${0}';
+
