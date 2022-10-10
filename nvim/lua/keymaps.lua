@@ -23,6 +23,9 @@ function SetKeybinds()
   end
 end
 
+-- xml format
+vim.keymap.set("n", "<leader>xf", "<cmd>%!xmllint --format -<CR>", { desc = "Format XML file" })
+
 -- vim-test
 vim.keymap.set("n", "<leader>tt", "<cmd>TestNearest<CR>", { desc = "Test Nearset" })
 vim.keymap.set("n", "<leader>tT", "<cmd>TestFile<CR>", { desc = "Test File" })
