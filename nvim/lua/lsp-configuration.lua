@@ -324,10 +324,11 @@ require 'lspconfig'.volar.setup {
 -- }
 
 -- eslint, null-ls
-local null_ls = require("null-ls")
+-- local null_ls = require("null-ls")
+-- null_ls.setup()
+--
 local eslint = require("eslint")
 
-null_ls.setup()
 
 eslint.setup({
   bin = 'eslint', -- or `eslint_d`
