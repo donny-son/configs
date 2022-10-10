@@ -43,6 +43,11 @@ require 'lspconfig'.svelte.setup {
   on_attach = on_attach,
 }
 
+require 'lspconfig'.prismals.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
 -- dot language server >> npm i -g dot-language-server
 require 'lspconfig'.dotls.setup {
   capabilities = capabilities,
@@ -343,3 +348,9 @@ eslint.setup({
     run_on = "type", -- or `save`
   },
 })
+
+require 'nvim-treesitter.configs'.setup {
+  highlight = { enable = true },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
+}
