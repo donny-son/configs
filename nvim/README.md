@@ -10,7 +10,7 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 
 - Live grep for Telescope : `brew install ripgrep`
 - NodeJS, Yarn : install from brew and manage versions of node with nvm
-- Rust 
+- Rust
 - Go
 
 ```bash
@@ -70,7 +70,7 @@ sudo apt update
 sudo apt install neovim -y
 ```
 
-### Plugins 
+### Plugins
 
 Install all plugins by `:PlugInstall` in nvim.
 
@@ -83,6 +83,7 @@ Install all plugins by `:PlugInstall` in nvim.
 `:CmpTabnineHub`
 
 #### Copilot
+
 `:Copilot setup`
 
 #### Nvim DAP
@@ -98,4 +99,3 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 ```bash
 poetry add --dev debugpy
 ```
-

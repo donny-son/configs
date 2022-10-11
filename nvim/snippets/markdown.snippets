@@ -10,83 +10,22 @@ snippet nw
 
 # The suffix `c` stands for "Clipboard".
 # defaults
-snippet [
-	[${1:text}](https://${2:address})
-snippet [*
-	[${1:link}](${2:`@*`})
-snippet [c
-	[${1:link}](${2:`@+`})
-snippet ["
-	[${1:text}](https://${2:address} "${3:title}")
-snippet ["*
-	[${1:link}](${2:`@*`} "${3:title}")
-snippet ["c
-	[${1:link}](${2:`@+`} "${3:title}")
-snippet [:
-	[${1:id}]: https://${2:url}
+snippet nl
+	[${1:text}](${2:address})
+snippet nlt
+	[${1:text}](${2:address} "${3:title}")
 
-snippet [:*
-	[${1:id}]: ${2:`@*`}
-
-snippet [:c
-	[${1:id}]: ${2:`@+`}
-
-snippet [:"
-	[${1:id}]: https://${2:url} "${3:title}"
-
-snippet [:"*
-	[${1:id}]: ${2:`@*`} "${3:title}"
-
-snippet [:"c
-	[${1:id}]: ${2:`@+`} "${3:title}"
-
-snippet ![
+snippet nim
 	![${1:alttext}](${2:/images/image.jpg})
-snippet ![*
-	![${1:alt}](${2:`@*`})
-snippet ![c
-	![${1:alt}](${2:`@+`})
-snippet !["
+snippet nimt
 	![${1:alttext}](${2:/images/image.jpg} "${3:title}")
-snippet !["*
-	![${1:alt}](${2:`@*`} "${3:title}")
-snippet !["c
-	![${1:alt}](${2:`@+`} "${3:title}")
-snippet ![:
-	![${1:id}]: ${2:url}
 
-snippet ![:*
-	![${1:id}]: ${2:`@*`}
-
-snippet ![:"
-	![${1:id}]: ${2:url} "${3:title}"
-
-snippet ![:"*
-	![${1:id}]: ${2:`@*`} "${3:title}"
-
-snippet ![:"c
-	![${1:id}]: ${2:`@+`} "${3:title}"
-
-snippet <
-	<http://${1:url}>
-snippet <*
-	<`@*`>
-snippet <c
-	<`@+`>
-snippet **
+snippet bold
 	**${1:bold}**
-snippet __
-	__${1:bold}__
-snippet ===
-	`repeat('=', strlen(getline(line('.') - 3)))`
 
-	${0}
-snippet -
-	-   ${0}
-snippet ---
-	`repeat('-', strlen(getline(line('.') - 3)))`
+snippet under
+	*${1:underline}*
 
-	${0}
 snippet blockquote
 	{% blockquote %}
 	${0:quote}
@@ -102,13 +41,8 @@ snippet blockquote-link
 	${0:quote}
 	{% endblockquote %}
 
-snippet ```
-	```${1}
-	${0:${VISUAL}}
-	```
-
 # Language.
-snippet ```l
+snippet lb
 	```${1:language}
 	${2:code}
 	```
