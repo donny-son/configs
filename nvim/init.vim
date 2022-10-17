@@ -26,8 +26,8 @@ lua require('keymaps')
 lua require('colorscheme')
 
 autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
-autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
+autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue,*.svelte EslintFixAll
 
 if exists("g:neovide")
   lua require('neovide-config')
