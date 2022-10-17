@@ -313,15 +313,15 @@ require "luasnip.loaders.from_snipmate".lazy_load()
 require "luasnip.loaders.from_vscode".lazy_load()
 
 -- vue | volar
-require 'lspconfig'.volar.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
--- vue | vuels
--- require 'lspconfig'.vuels.setup {
+-- require 'lspconfig'.volar.setup {
 --   capabilities = capabilities,
 --   on_attach = on_attach,
 -- }
+-- vue | vuels
+require 'lspconfig'.vuels.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- eslint, null-ls
 -- local null_ls = require("null-ls")
