@@ -4,7 +4,7 @@ require('cinnamon').setup()
 -- require 'colorizer'.setup()
 require('lualine').setup({
   options = {
-    theme = 'neon'
+    theme = 'nightfly'
   }
 })
 
