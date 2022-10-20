@@ -8,3 +8,4 @@ Plug 'declancm/cinnamon.nvim' " smooth scrolling
 Plug 'j-hui/fidget.nvim' " ui for lsp
 " Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 " Plug 'segeljakt/vim-silicon' " create neat image of visual code selection
+Plug 'rcarriga/nvim-notify'
