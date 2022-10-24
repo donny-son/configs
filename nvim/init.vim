@@ -16,6 +16,7 @@ call plug#end()
 source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
 
+lua require('basics')
 lua require('nvim-tree-configuration')
 lua require('buffer-configuration')
 lua require('lsp-configuration')
