@@ -347,8 +347,26 @@ eslint.setup({
   },
 })
 
--- require 'nvim-treesitter.configs'.setup {
---   highlight = { enable = true },
---   incremental_selection = { enable = true },
---   textobjects = { enable = true },
--- }
+require 'nvim-treesitter.configs'.setup {
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
+  context_commentstring = {
+    enable = true,
+    commentary_integration = {
+      -- change default mapping
+      Commentary = 'g/',
+      -- disable default mapping
+      CommentaryLine = false,
+    },
+    config = {
+      javascript = {
+        __default = '// %s',
+        jsx_element = '{/* %s */}',
+        jsx_fragment = '{/* %s */}',
+        jsx_attribute = '// %s',
+        comment = '// %s'
+      },
+      typescript = { __default = '// %s', __multiline = '/* %s */' },
+    },
+  },
+}
