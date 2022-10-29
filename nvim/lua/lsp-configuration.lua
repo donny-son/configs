@@ -1,3 +1,10 @@
+-- lspconfig no longer maintained
+require 'mason'.setup()
+require 'mason-lspconfig'.setup({
+  automatic_installation = true
+}
+)
+
 ---@diagnostic disable: need-check-nil
 vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })

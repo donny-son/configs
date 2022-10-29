@@ -1,3 +1,6 @@
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'leafOfTree/vim-svelte-plugin'
 " Plug 'rust-lang/rust.vim'
