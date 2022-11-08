@@ -9,7 +9,6 @@ set mouse=a
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=1
 set shortmess+=c
 set noimd
 set cursorline
