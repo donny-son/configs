@@ -8,10 +8,10 @@ return {
   default_cursor_style = "BlinkingBlock",
   cursor_blink_ease_in = "Linear",
   cursor_blink_ease_out = "Linear",
-  cursor_blink_rate = 500,
-  animation_fps = 60,
+  cursor_blink_rate = 300,
+  animation_fps = 120,
   audible_bell = "Disabled",
-  enable_tab_bar = false,
+  enable_tab_bar = true,
   line_height = 1.3,
   warn_about_missing_glyphs = false,
 }

@@ -37,6 +37,11 @@ end
 -- LANGUAGES --
 ---------------
 
+-- astro
+require 'lspconfig'.astro.setup {
+  on_attach = on_attach,
+}
+
 -- svelte language server >> npm i -g svelte-language-server
 require 'lspconfig'.svelte.setup {
   capabilities = capabilities,
@@ -308,12 +313,14 @@ require 'neogit'.setup {}
 -- snippets
 require "luasnip.loaders.from_snipmate".lazy_load()
 require "luasnip.loaders.from_vscode".lazy_load()
+-- require "luasnip.add_snippets" ("jsx", { "javascript", "jsdoc", "react-es7" })
+-- require "luasnip.add_snippets" ("tsx", { "javascript", "jsdoc", "react-es7" })
 
 -- vue | volar
--- require 'lspconfig'.volar.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
+require 'lspconfig'.volar.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 -- vue | vuels
 require 'lspconfig'.vuels.setup {
   capabilities = capabilities,
@@ -346,6 +353,7 @@ eslint.setup({
     run_on = "type", -- or `save`
   },
 })
+
 
 require 'nvim-treesitter.configs'.setup {
   incremental_selection = { enable = true },
