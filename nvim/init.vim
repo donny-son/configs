@@ -16,6 +16,7 @@ call plug#end()
 source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
 source $HOME/.config/nvim/post-plugins/keymaps.vim
 
+lua require('basics')
 lua require('nvim-tree-configuration')
 lua require('buffer-configuration')
 lua require('lsp-configuration')
@@ -25,9 +26,10 @@ lua require('code-configuration')
 lua require('keymaps')
 lua require('colorscheme')
 
-autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+" autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+" autocmd BufRead,BufEnter *.astro set filetype=astro
 autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
-autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue,*.svelte EslintFixAll
+" autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue,*.svelte,*.astro EslintFixAll
 
 if exists("g:neovide")
   lua require('neovide-config')

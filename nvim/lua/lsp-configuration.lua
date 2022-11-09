@@ -20,7 +20,7 @@ require("nvim-lsp-installer").setup({
   }
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- formatting
@@ -43,6 +43,11 @@ end
 ---------------
 -- LANGUAGES --
 ---------------
+
+-- astro
+require 'lspconfig'.astro.setup {
+  on_attach = on_attach,
+}
 
 -- svelte language server >> npm i -g svelte-language-server
 require 'lspconfig'.svelte.setup {
@@ -276,9 +281,6 @@ cmp.setup({
       }
     }
   },
-  window = {
-    documentation = cmp.config.window.bordered(),
-  },
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -318,12 +320,14 @@ require 'neogit'.setup {}
 -- snippets
 require "luasnip.loaders.from_snipmate".lazy_load()
 require "luasnip.loaders.from_vscode".lazy_load()
+-- require "luasnip.add_snippets" ("jsx", { "javascript", "jsdoc", "react-es7" })
+-- require "luasnip.add_snippets" ("tsx", { "javascript", "jsdoc", "react-es7" })
 
 -- vue | volar
--- require 'lspconfig'.volar.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
+require 'lspconfig'.volar.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 -- vue | vuels
 require 'lspconfig'.vuels.setup {
   capabilities = capabilities,
@@ -357,8 +361,27 @@ eslint.setup({
   },
 })
 
--- require 'nvim-treesitter.configs'.setup {
---   highlight = { enable = true },
---   incremental_selection = { enable = true },
---   textobjects = { enable = true },
--- }
+require 'nvim-treesitter.configs'.setup {
+  highlight = { enable = true },
+  incremental_selection = { enable = true },
+  textobjects = { enable = true },
+  context_commentstring = {
+    enable = true,
+    commentary_integration = {
+      -- change default mapping
+      Commentary = 'g/',
+      -- disable default mapping
+      CommentaryLine = false,
+    },
+    config = {
+      javascript = {
+        __default = '// %s',
+        jsx_element = '{/* %s */}',
+        jsx_fragment = '{/* %s */}',
+        jsx_attribute = '// %s',
+        comment = '// %s'
+      },
+      typescript = { __default = '// %s', __multiline = '/* %s */' },
+    },
+  },
+}

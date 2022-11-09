@@ -4,9 +4,11 @@ require('cinnamon').setup()
 -- require 'colorizer'.setup()
 require('lualine').setup({
   options = {
-    theme = 'neon'
+    theme = 'nightfly'
   }
 })
+
+vim.notify = require("notify")
 
 vim.g.symbols_outline = {
   highlight_hovered_item = true,

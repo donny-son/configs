@@ -8,4 +8,4 @@ require('fold-cycle').setup({
 require("trouble").setup {}
 
 -- markdown code injection
-require('femaco').setup {}
+require('femaco').setup()

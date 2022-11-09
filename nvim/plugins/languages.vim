@@ -46,7 +46,7 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'jghauser/follow-md-links.nvim'
 Plug 'TimUntersberger/neogit'
 Plug 'folke/trouble.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/eslint.nvim'
 Plug 'leafOfTree/vim-matchtag'
 
