@@ -97,10 +97,10 @@ require 'lspconfig'.cssls.setup {
 require 'lspconfig'.eslint.setup {}
 
 -- R >> install.packages("languageserver")
-require 'lspconfig'.r_language_server.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+-- require 'lspconfig'.r_language_server.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 -- swift
 local gon = require("get_os_name")
