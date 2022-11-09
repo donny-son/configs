@@ -8,7 +8,9 @@ require('lualine').setup({
   }
 })
 
-vim.notify = require("notify")
+require("notify").setup({
+  background_colour = "#000000",
+})
 
 vim.g.symbols_outline = {
   highlight_hovered_item = true,
