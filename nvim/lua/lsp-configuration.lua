@@ -9,16 +9,17 @@ require 'mason-lspconfig'.setup({
 vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
 
-require("nvim-lsp-installer").setup({
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-})
+-- deprecated in favor of mason.nvinm
+-- require("nvim-lsp-installer").setup({
+--   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+--   ui = {
+--     icons = {
+--       server_installed = "✓",
+--       server_pending = "➜",
+--       server_uninstalled = "✗"
+--     }
+--   }
+-- })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true

@@ -38,7 +38,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'kosayoda/nvim-lightbulb'
 " Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'nvim-telescope/telescope-symbols.nvim'
 Plug 'folke/lua-dev.nvim'
 Plug 'ray-x/lsp_signature.nvim'
@@ -55,11 +55,12 @@ let test#strategy = "neovim"
 let test#neovim#term_position = "botright"
 let g:vim_matchtag_enable_by_default = 1
 let g:vim_matchtag_files = '*.html,*.xml,*.js,*.jsx,*.vue,*.svelte,*.jsp'
-let g:copilot_filetypes = {
-\ '*': v:false,
-\ 'python': v:true,
-\ 'go': v:true,
-\ 'javascript': v:true,
-\ 'typescript': v:true,
-\ 'markdown': v:true,
-\ }
+
+" let g:copilot_filetypes = {
+" \ '*': v:false,
+" \ 'python': v:true,
+" \ 'go': v:true,
+" \ 'javascript': v:true,
+" \ 'typescript': v:true,
+" \ 'markdown': v:true,
+" \ }
