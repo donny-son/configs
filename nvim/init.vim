@@ -1,6 +1,6 @@
 source $HOME/.config/nvim/basic-configuration.vim
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 source $HOME/.config/nvim/plugins/formatting.vim
 source $HOME/.config/nvim/plugins/prettythings.vim
 source $HOME/.config/nvim/plugins/fzf.vim
