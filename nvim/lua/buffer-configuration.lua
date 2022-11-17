@@ -10,7 +10,8 @@ require('lualine').setup({
 
 vim.notify = require("notify")
 require("notify").setup({
-  background_colour = "#000000"
+  background_colour = "#000000",
+  top_down = false,
 })
 
 vim.g.symbols_outline = {

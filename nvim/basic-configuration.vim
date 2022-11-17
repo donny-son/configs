@@ -4,7 +4,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 syntax enable
-set nohlsearch
+set hlsearch
 set mouse=a
 set hidden
 set nobackup
