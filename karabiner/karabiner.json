@@ -827,8 +827,22 @@
             ]
           },
           {
-            "description": "Hyper Misc (Check https://github.com/Vonng/Capslock for all details)",
+            "description": "Langauge Change + Hyper Misc (Check https://github.com/Vonng/Capslock for all details)",
             "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_command"
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
               {
                 "from": {
                   "key_code": "spacebar",
