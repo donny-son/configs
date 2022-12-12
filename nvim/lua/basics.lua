@@ -1,4 +1,2 @@
-local opt = vim.opt
-
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
