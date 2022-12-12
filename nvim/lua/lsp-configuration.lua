@@ -1,8 +1,88 @@
----@diagnostic disable: need-check-nil
-vim.keymap.set("n", "<leader>gj", vim.diagnostic.goto_next, { buffer = 0 })
-vim.keymap.set("n", "<leader>gk", vim.diagnostic.goto_prev, { buffer = 0 })
+---
+-- Keybindings
+---
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function()
+    local bufmap = function(mode, lhs, rhs)
+      local opts = {buffer = true}
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
 
-require("nvim-lsp-installer").setup({
+    bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+    bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+    bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+    bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+  end
+})
+
+
+---
+-- Diagnostics
+---
+
+local sign = function(opts)
+  vim.fn.sign_define(opts.name, {
+    texthl = opts.name,
+    text = opts.text,
+    numhl = ''
+  })
+end
+
+sign({name = 'DiagnosticSignError', text = '✘'})
+sign({name = 'DiagnosticSignWarn', text = '▲'})
+sign({name = 'DiagnosticSignHint', text = '⚑'})
+sign({name = 'DiagnosticSignInfo', text = ''})
+
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = 'rounded'}
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {border = 'rounded'}
+)
+
+
+
+---
+-- LSP config
+---
+
+require('mason').setup({})
+require('mason-lspconfig').setup({})
+
+local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config
+
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+
+require("mason").setup({
   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
   ui = {
     icons = {
@@ -13,135 +93,35 @@ require("nvim-lsp-installer").setup({
   }
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+---------------
+-- LANGUAGES --
+---------------
 -- formatting
 require 'lsp-format'.setup {
   sql = { exclude = { "sqls" } }
 }
-
--- attach when lsp server is triggered
-local on_attach = function(client, bufnr)
-  require 'lsp-format'.on_attach(client)
-  require 'lsp_signature'.on_attach(client, bufnr)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
-  vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
-end
-
----------------
--- LANGUAGES --
----------------
-
--- astro
-require 'lspconfig'.astro.setup {
-  on_attach = on_attach,
-}
-
--- svelte language server >> npm i -g svelte-language-server
-require 'lspconfig'.svelte.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
-require 'lspconfig'.prismals.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- dot language server >> npm i -g dot-language-server
-require 'lspconfig'.dotls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- dockerfile language server >> npm i -g dockerfile-language-server-nodejs
-require 'lspconfig'.dockerls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- go >> go install golang.org/x/tools/gopls@latest
-require 'lspconfig'.gopls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- diagnostic >> npm i -g diagnostic-languageserver
-require 'lspconfig'.diagnosticls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  filetypes = { 'lua' },
-}
-
--- json, html, css, eslint >> npm i -g vscode-langservers-extracted
-require 'lspconfig'.jsonls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
-require 'lspconfig'.html.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-
-}
-
-require 'lspconfig'.cssls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+require 'lspconfig'.volar.setup {}
+require 'lspconfig'.vuels.setup {}
+require 'lspconfig'.astro.setup {}
+require 'lspconfig'.svelte.setup {}
+require 'lspconfig'.prismals.setup {}
+require 'lspconfig'.dotls.setup {}
+require 'lspconfig'.dockerls.setup {}
+require 'lspconfig'.gopls.setup {}
+require 'lspconfig'.diagnosticls.setup {}
+require 'lspconfig'.jsonls.setup {}
+require 'lspconfig'.html.setup {}
+require 'lspconfig'.cssls.setup {}
 require 'lspconfig'.eslint.setup {}
-
--- R >> install.packages("languageserver")
--- require 'lspconfig'.r_language_server.setup {
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
-
--- swift
 local gon = require("get_os_name")
 local os_name, _ = gon.get_os_name()
 if os_name == 'Mac' then
-  require 'lspconfig'.sourcekit.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
+  require 'lspconfig'.sourcekit.setup {}
 end
-
--- sqls >> go install github.com/lighttiger2505/sqls
-require 'lspconfig'.sqls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- bash >> npm i -g bash-language-server
-require 'lspconfig'.bashls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- typescript >> npm install -g typescript typescript-language-server
-require 'lspconfig'.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- solidity >> npm i -g solidity-language-server
-require 'lspconfig'.solidity_ls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- markdown >> cargo install prosemd-lsp
-require 'lspconfig'.prosemd_lsp.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
+require 'lspconfig'.sqls.setup {}
+require 'lspconfig'.bashls.setup {}
+require 'lspconfig'.tsserver.setup {}
+require 'lspconfig'.prosemd_lsp.setup {}
 -- tabnine
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
@@ -156,184 +136,136 @@ tabnine:setup({
   show_prediction_strength = true;
 })
 
--- lua
--- mac >> brew install lua-language-server
--- linux >> download binaries from https://github.com/sumneko/lua-language-server/releases.
-require 'lspconfig'.sumneko_lua.setup {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-  on_attach = on_attach,
-}
-
-
--- python(jedi) >> poetry add jedi jedi-language-server
+lspconfig.sumneko_lua.setup({})
 local lspconfig_util = require 'lspconfig.util'
 local pyproject_root = lspconfig_util.root_pattern('pyproject.toml')
 require 'lspconfig'.jedi_language_server.setup {
   root_dir = pyproject_root,
-  capabilities = capabilities,
-  on_attach = on_attach,
 }
+require 'lspconfig'.pyright.setup {}
+require 'lspconfig'.vimls.setup {}
+require 'lspconfig'.taplo.setup {}
+require 'lspconfig'.tailwindcss.setup {}
+require 'lspconfig'.yamlls.setup {}
+require 'lspconfig'.rust_analyzer.setup {}
 
--- python(pyright) >> npm i -g pyright
-require 'lspconfig'.pyright.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
 
--- vimscript
-require 'lspconfig'.vimls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
 
--- toml files
-require 'lspconfig'.taplo.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+---
+-- Autocomplete
+---
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
--- tailwindcss
-require 'lspconfig'.tailwindcss.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+require('luasnip.loaders.from_vscode').lazy_load()
+require "luasnip.loaders.from_snipmate".lazy_load()
 
--- json, yaml linter
-require 'lspconfig'.yamlls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- Rust
-require 'lspconfig'.rust_analyzer.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- pictograms for completion
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-local ok, lspkind = pcall(require, "lspkind")
-if not ok then
-  return
-end
-lspkind.init()
-
--- completion configuration
 local cmp = require('cmp')
-cmp.setup.cmdline(
-  ':', {
-  sources = {
-    { name = 'cmdline' }
-  }
-})
-cmp.setup.cmdline(
-  '/', {
-  sources = {
-    { name = 'buffer' }
-  }
-})
+local luasnip = require('luasnip')
+local lspkind = require('lspkind')
+local select_opts = {behavior = cmp.SelectBehavior.Select}
+local source_mapping = {
+	buffer = "[Buffer]",
+	nvim_lsp = "[LSP]",
+	nvim_lua = "[Lua]",
+	cmp_tabnine = "[TN]",
+	path = "[Path]",
+}
+
 cmp.setup({
-  insert = true,
   snippet = {
     expand = function(args)
-      local luasnip = require('luasnip')
-      if not luasnip then
-        return
-      end
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
-    end,
+      luasnip.lsp_expand(args.body)
+    end
   },
-  formatting = {
-    format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
-        nvim_lsp = "[📚]",
-        path = "[📁]",
-        luasnip = "[✂️]",
-        buffer = "[📄]",
-        cmp_tabnine = "[🤖]",
-        nvim_lua = "[]",
-        emoji = "[🌭]",
-        calc = "[]",
-      }
-    }
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp', keyword_length = 2},
+    {name = 'cmp_tabnine', keyword_length = 2},
+    {name = 'buffer', keyword_length = 2},
+    {name = 'luasnip', keyword_length = 2},
   },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  window = {
+    documentation = cmp.config.window.bordered()
+  },
+	formatting = {
+		format = function(entry, vim_item)
+			-- if you have lspkind installed, you can use it like
+			-- in the following line:
+	 		vim_item.kind = lspkind.symbolic(vim_item.kind, {mode = "symbol"})
+	 		vim_item.menu = source_mapping[entry.source.name]
+	 		if entry.source.name == "cmp_tabnine" then
+	 			local detail = (entry.completion_item.data or {}).detail
+	 			vim_item.kind = ""
+	 			if detail and detail:find('.*%%.*') then
+	 				vim_item.kind = vim_item.kind .. ' ' .. detail
+	 			end
+
+	 			if (entry.completion_item.data or {}).multiline then
+	 				vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
+	 			end
+	 		end
+	 		local maxwidth = 80
+	 		vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+	 		return vim_item
+	  end,
+	},
+  mapping = {
+    ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+
+    ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-s>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  }),
-  sources = cmp.config.sources({
-    { name = 'luasnip' },
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'cmp_tabnine' },
-    { name = 'buffer', keyword_length = 2 },
-    { name = 'nvim_lua' },
-    { name = 'emoji' },
-    { name = 'calc' },
-    { name = 'nvim_lsp_signature_help' },
-  })
+
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+
+    ['<C-d>'] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+
+    ['<C-b>'] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      local col = vim.fn.col('.') - 1
+
+      if cmp.visible() then
+        cmp.select_next_item(select_opts)
+      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        fallback()
+      else
+        cmp.complete()
+      end
+    end, {'i', 's'}),
+
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item(select_opts)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+  },
 })
 
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Toggle LSP diagnostic
 require 'toggle_lsp_diagnostics'.init()
-
--- fidget
 require 'fidget'.setup {}
-
--- neogit
 require 'neogit'.setup {}
 
--- snippets
-require "luasnip.loaders.from_snipmate".lazy_load()
-require "luasnip.loaders.from_vscode".lazy_load()
--- require "luasnip.add_snippets" ("jsx", { "javascript", "jsdoc", "react-es7" })
--- require "luasnip.add_snippets" ("tsx", { "javascript", "jsdoc", "react-es7" })
 
--- vue | volar
-require 'lspconfig'.volar.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
--- vue | vuels
-require 'lspconfig'.vuels.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-
--- eslint, null-ls
--- local null_ls = require("null-ls")
--- null_ls.setup()
---
 local eslint = require("eslint")
-
-
 eslint.setup({
   bin = 'eslint', -- or `eslint_d`
   code_actions = {
@@ -377,10 +309,4 @@ require 'nvim-treesitter.configs'.setup {
       typescript = { __default = '// %s', __multiline = '/* %s */' },
     },
   },
-}
-
-require('lspconfig').sqls.setup {
-  on_attach = function(client, bufnr)
-    require('sqls').on_attach(client, bufnr)
-  end
 }
