@@ -93,6 +93,12 @@ Plug 'itmecho/neoterm.nvim'
 
 " Setup Options for some plugins
 let g:neoformat_try_node_exe = 1
+let g:neoformat_enabled_markdown = ['prettierd']
+let g:neoformat_enabled_json = ['prettierd']
+let g:neoformat_enabled_html = ['prettierd']
+let g:neoformat_enabled_sql = ['sqlformat']
+let g:neoformat_enabled_python = ['black', 'isort']
+" auto format on save
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
