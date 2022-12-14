@@ -18,7 +18,6 @@ install-rust:
 install-wezterm:
 	curl -LO  https://github.com/wez/wezterm/releases/download/20220624-141144-bd1b7c5d/wezterm-20220624-141144-bd1b7c5d.Ubuntu22.04.deb && sudo apt install -y ./wezterm-20220624-141144-bd1b7c5d.Ubuntu20.04.deb
 
-
 .PHONY: install-vimplug
 install-vimplug:
 	sh install-vimplug.sh
@@ -29,6 +28,6 @@ install-fonts:
 	cd ~/.local/share/fonts && curl -fLo "FiraCode Retina Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete%20Mono.ttf
 
 .PHONY: install
-install: install-zsh install-pyenv install-nvm install-rust
+install: install-pyenv install-nvm install-rust install-zsh 
 	bash install-mac-things.sh
 

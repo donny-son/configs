@@ -1,21 +1,59 @@
-source $HOME/.config/nvim/basic-configuration.vim
+set nocompatible              
+set clipboard+=unnamedplus
+filetype on     
+filetype plugin on
+filetype plugin indent on
+syntax enable
+set hlsearch
+set mouse=a
+set hidden
+set nobackup
+set nowritebackup
+set shortmess+=c
+set noimd
+set cursorline
+set noerrorbells
+set noswapfile
+set ruler
+set noswapfile
+set incsearch
+set conceallevel=0
+set encoding=utf-8
+set fileencoding=utf-8
+set smartindent
+set nu
+set clipboard=unnamedplus
+set t_Co=256
+set splitbelow
+set splitright
+set foldmethod=indent
+set foldlevel=99
+set rnu
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set updatetime=300
+set formatoptions-=cro
+set fileformat=unix
+set ruler
+set incsearch
+set termguicolors
+set scrolloff=30
+set signcolumn=yes
+set noshowmode
+set langmap=ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz
+set guicursor+=a:-blinkwait175-blinkoff150-blinkon175
 
 call plug#begin('~/.vim/plugged')
-source $HOME/.config/nvim/plugins/formatting.vim
-source $HOME/.config/nvim/plugins/prettythings.vim
-source $HOME/.config/nvim/plugins/fzf.vim
-source $HOME/.config/nvim/plugins/languages.vim
-source $HOME/.config/nvim/plugins/lines.vim
-source $HOME/.config/nvim/plugins/filemanagement.vim
-source $HOME/.config/nvim/plugins/panemanagement.vim
-source $HOME/.config/nvim/plugins/debugging.vim
-source $HOME/.config/nvim/plugins/code.vim
-source $HOME/.config/nvim/plugins/colorscheme.vim
+source $HOME/.config/nvim/plugins/plugins.vim
 call plug#end()
 
-source $HOME/.config/nvim/post-plugins/markdownviewer-config.vim
-source $HOME/.config/nvim/post-plugins/keymaps.vim
+source $HOME/.config/nvim/plugins/markdownviewer-config.vim
+source $HOME/.config/nvim/plugins/keymaps.vim
 
+lua require('basics')
 lua require('nvim-tree-configuration')
 lua require('buffer-configuration')
 lua require('lsp-configuration')
@@ -25,9 +63,7 @@ lua require('code-configuration')
 lua require('keymaps')
 lua require('colorscheme')
 
-autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()
-autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue,*.svelte EslintFixAll
 
 if exists("g:neovide")
   lua require('neovide-config')

@@ -8,6 +8,7 @@ git clone git@github.com:donny-son/nvim-config.git ~/.config/nvim
 
 ### System Dependencies
 
+
 - Live grep for Telescope : `brew install ripgrep`
 - NodeJS, Yarn : install from brew and manage versions of node with nvm
 - Rust
@@ -99,3 +100,4 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 ```bash
 poetry add --dev debugpy
 ```
+

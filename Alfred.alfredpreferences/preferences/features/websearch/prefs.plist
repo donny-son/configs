@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>60941988-6346-45EA-92A8-615083BC1F03</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>n</string>
+			<key>text</key>
+			<string>Naver</string>
+			<key>url</key>
+			<string>https://search.naver.com/search.naver?where=nexearch&amp;sm=top_hty&amp;fbm=0&amp;ie=utf8&amp;query={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>DB546582-0BFD-46D5-8425-026D3F6B1E0E</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nm</string>
+			<key>text</key>
+			<string>NaverMap</string>
+			<key>url</key>
+			<string>https://map.naver.com/v5/search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
+</dict>
+</plist>
