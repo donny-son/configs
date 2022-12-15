@@ -28,4 +28,4 @@ yabai -m rule --add app="Preferences$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
-yabai -m rule --add app="^KakaoTalk$" manage=off
+yabai -m rule --add app="^ExpressVPN$" manage=off
