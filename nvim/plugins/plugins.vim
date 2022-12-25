@@ -96,7 +96,7 @@ let g:neoformat_try_node_exe = 1
 let g:neoformat_enabled_markdown = ['prettierd']
 let g:neoformat_enabled_json = ['prettierd']
 let g:neoformat_enabled_html = ['prettierd']
-let g:neoformat_enabled_sql = ['sqlformat']
+let g:neoformat_enabled_sql = ['pg_format']
 let g:neoformat_enabled_python = ['black', 'isort']
 " auto format on save
 augroup fmt
@@ -108,4 +108,3 @@ let test#neovim#term_position = "botright"
 let g:vim_matchtag_enable_by_default = 1
 let g:vim_matchtag_files = '*.html,*.xml,*.js,*.jsx,*.vue,*.svelte,*.jsp'
 au FileType markdown let b:presenting_slide_separator = '\v(^|\n)\-{3,}'
-
