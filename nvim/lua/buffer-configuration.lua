@@ -10,6 +10,9 @@ require('lualine').setup({
 
 require("notify").setup({
   background_colour = "#000000",
+  fps = 60,
+  timeout = 2000,
+  top_down = false
 })
 
 vim.g.symbols_outline = {
