@@ -1,7 +1,5 @@
 set nocompatible              
 set clipboard+=unnamedplus
-filetype on     
-filetype plugin on
 filetype plugin indent on
 syntax enable
 set hlsearch
@@ -14,15 +12,11 @@ set noimd
 set cursorline
 set noerrorbells
 set noswapfile
-set ruler
-set noswapfile
-set incsearch
 set conceallevel=0
 set encoding=utf-8
 set fileencoding=utf-8
 set smartindent
 set nu
-set clipboard=unnamedplus
 set t_Co=256
 set splitbelow
 set splitright
