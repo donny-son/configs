@@ -3,7 +3,7 @@ return {
   font = wezterm.font({
     family = "VictorMono Nerd Font",
   }),
-  font_size = 15,
+  font_size = 12,
   color_scheme = "Galizur",
   default_cursor_style = "BlinkingBlock",
   cursor_blink_ease_in = "Linear",
