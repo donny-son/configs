@@ -124,7 +124,6 @@ tabnine:setup({
 	show_prediction_strength = true,
 })
 
-lspconfig.sumneko_lua.setup({})
 local lspconfig_util = require("lspconfig.util")
 local pyproject_root = lspconfig_util.root_pattern("pyproject.toml")
 require("lspconfig").jedi_language_server.setup({
