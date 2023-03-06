@@ -14,7 +14,6 @@ Plug 'danilo-augusto/vim-afterglow'
 Plug 'rafamadriz/neon'
 Plug 'bluz71/vim-nightfly-guicolors'
 " Debugging
-Plug 'neovim/nvim-lspconfig'
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'leoluz/nvim-dap-go'
@@ -51,10 +50,10 @@ Plug 'vim-test/vim-test'
 Plug 'sheerun/vim-polyglot' " language pack
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-calc'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
@@ -91,14 +90,19 @@ Plug 'j-hui/fidget.nvim' " ui for lsp
 Plug 'rcarriga/nvim-notify'
 Plug 'sbdchd/neoformat'
 Plug 'itmecho/neoterm.nvim'
+Plug 'prisma/vim-prisma'
 
 " Setup Options for some plugins
 let g:neoformat_try_node_exe = 1
-let g:neoformat_enabled_markdown = ['prettierd']
-let g:neoformat_enabled_json = ['prettierd']
-let g:neoformat_enabled_html = ['prettierd']
+let g:neoformat_only_msg_on_error = 1
+let g:neoformat_enabled_markdown = ['eslint_d']
+let g:neoformat_enabled_json = ['eslint_d']
+let g:neoformat_enabled_html = ['eslint_d']
+let g:neoformat_enabled_javascript = ['eslint_d']
+let g:neoformat_enabled_typescript = ['eslint_d']
+let g:neoformat_enabled_vue = ['eslint_d']
 let g:neoformat_enabled_sql = ['pg_format']
-let g:neoformat_enabled_python = ['black', 'isort']
+let g:neoformat_enabled_python = ['black', 'isort', 'docformatter']
 " auto format on save
 augroup fmt
   autocmd!

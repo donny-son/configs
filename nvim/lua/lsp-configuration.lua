@@ -89,14 +89,14 @@ require("lsp-format").setup({
 	sql = { exclude = { "sqls" } },
 })
 require("lspconfig").volar.setup({})
-require("lspconfig").vuels.setup({})
+-- require("lspconfig").vuels.setup({})
 require("lspconfig").astro.setup({})
 require("lspconfig").svelte.setup({})
 require("lspconfig").prismals.setup({})
 require("lspconfig").dotls.setup({})
 require("lspconfig").dockerls.setup({})
 require("lspconfig").gopls.setup({})
-require("lspconfig").diagnosticls.setup({})
+-- require("lspconfig").diagnosticls.setup({})
 require("lspconfig").jsonls.setup({})
 require("lspconfig").html.setup({})
 require("lspconfig").cssls.setup({})
@@ -126,9 +126,9 @@ tabnine:setup({
 
 local lspconfig_util = require("lspconfig.util")
 local pyproject_root = lspconfig_util.root_pattern("pyproject.toml")
-require("lspconfig").jedi_language_server.setup({
-	root_dir = pyproject_root,
-})
+-- require("lspconfig").jedi_language_server.setup({
+-- 	root_dir = pyproject_root,
+-- })
 require("lspconfig").pyright.setup({})
 -- require("lspconfig").ruff_lsp.setup({})
 require("lspconfig").vimls.setup({})
