@@ -54,3 +54,4 @@ rectangle/rectangle_conf.json
 *.DS_Store
 pudb/
 yarn
+*.bak
