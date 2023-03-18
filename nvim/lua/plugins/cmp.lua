@@ -18,14 +18,6 @@ return {
       local cmp = require "cmp"
       local snip_status_ok, luasnip = pcall(require, "luasnip")
       local lspkind_status_ok, lspkind = pcall(require, "lspkind")
-      local source_mapping = {
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[Lua]",
-        cmp_tabnine = "[TN]",
-        luasnip = "[LSNP]",
-        path = "[Path]",
-      }
       if not snip_status_ok then return end
       local border_opts = {
         border = "single",
@@ -45,24 +37,7 @@ return {
         preselect = cmp.PreselectMode.None,
         formatting = {
           fields = { "kind", "abbr", "menu" },
-          format = function(entry, vim_item)
-            vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = "symbol" })
-            vim_item.menu = source_mapping[entry.source.name]
-            if entry.source.name == "cmp_tabnine" then
-              local detail = (entry.completion_item.data or {}).detail
-              vim_item.kind = ""
-              if detail and detail:find('.*%%.*') then
-                vim_item.kind = vim_item.kind .. ' ' .. detail
-              end
-
-              if (entry.completion_item.data or {}).multiline then
-                vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
-              end
-            end
-            local maxwidth = 80
-            vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
-            return vim_item
-          end,
+          format = lspkind_status_ok and lspkind.cmp_format(astronvim.lspkind) or nil,
         },
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
@@ -117,11 +92,10 @@ return {
           end, { "i", "s" }),
         },
         sources = cmp.config.sources {
-          { name = "nvim_lsp",    priority = 1000 },
-          { name = "luasnip",     priority = 750 },
-          { name = "buffer",      priority = 500 },
-          { name = "cmp_tabnine", priority = 400 },
-          { name = "path",        priority = 250 },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip", priority = 750 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         },
       }
     end,

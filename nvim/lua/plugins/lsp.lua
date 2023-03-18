@@ -1,12 +1,6 @@
 return {
   "b0o/SchemaStore.nvim",
   {
-    'tzachar/cmp-tabnine',
-    build = './install.sh',
-    dependencies = 'hrsh7th/nvim-cmp',
-    config = "plugins.configs.tabnine"
-  },
-  {
     "folke/neodev.nvim",
     opts = {
       override = function(root_dir, library)
@@ -38,7 +32,7 @@ return {
       {
         "jay-babu/mason-null-ls.nvim",
         cmd = { "NullLsInstall", "NullLsUninstall" },
-        opts = { automatic_setup = false },
+        opts = { automatic_setup = true },
         config = require "plugins.configs.mason-null-ls",
       },
     },

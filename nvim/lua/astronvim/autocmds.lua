@@ -6,15 +6,6 @@ local namespace = vim.api.nvim_create_namespace
 local utils = require "astronvim.utils"
 local is_available = utils.is_available
 local astroevent = utils.event
-local prefetch = augroup("prefetch", { clear = true })
-
-autocmd('BufRead', {
-  group = prefetch,
-  pattern = '*',
-  callback = function()
-    require('cmp_tabnine'):prefetch(vim.fn.expand('%:p'))
-  end
-})
 
 vim.on_key(function(char)
   if vim.fn.mode() == "n" then
@@ -72,7 +63,7 @@ autocmd("BufWinLeave", {
   desc = "Save view with mkview for real files",
   group = view_group,
   callback = function(event)
-    if vim.b[event.buf].view_activated then vim.cmd.mkview() end
+    if vim.b[event.buf].view_activated then vim.cmd.mkview { mods = { emsg_silent = true } } end
   end,
 })
 autocmd("BufWinEnter", {
@@ -121,7 +112,7 @@ autocmd("BufEnter", {
     local wins = vim.api.nvim_tabpage_list_wins(0)
     -- Both neo-tree and aerial will auto-quit if there is only a single window left
     if #wins <= 1 then return end
-    local sidebar_fts = { aerial = true,["neo-tree"] = true }
+    local sidebar_fts = { aerial = true, ["neo-tree"] = true }
     for _, winid in ipairs(wins) do
       if vim.api.nvim_win_is_valid(winid) then
         local bufnr = vim.api.nvim_win_get_buf(winid)
@@ -129,7 +120,7 @@ autocmd("BufEnter", {
         -- If any visible windows are not sidebars, early return
         if not sidebar_fts[filetype] then
           return
-          -- If the visible window is a sidebar
+        -- If the visible window is a sidebar
         else
           -- only count filetypes once, so remove a found sidebar from the detection
           sidebar_fts[filetype] = nil

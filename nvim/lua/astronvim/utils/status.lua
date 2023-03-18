@@ -511,15 +511,15 @@ end
 -- @usage local heirline_component = { provider = require("astronvim.utils.status").provider.percentage() }
 -- @see astronvim.utils.status.utils.stylize
 function M.provider.percentage(opts)
-  opts = extend_tbl({ escape = false, fixed_width = false, edge_text = true }, opts)
+  opts = extend_tbl({ escape = false, fixed_width = true, edge_text = true }, opts)
   return function()
-    local text = "%" .. (opts.fixed_width and "3" or "") .. "p%%"
+    local text = "%" .. (opts.fixed_width and (opts.edge_text and "2" or "3") or "") .. "p%%"
     if opts.edge_text then
       local current_line = vim.fn.line "."
       if current_line == 1 then
-        text = (opts.fixed_width and " " or "") .. "Top"
+        text = "Top"
       elseif current_line == vim.fn.line "$" then
-        text = (opts.fixed_width and " " or "") .. "Bot"
+        text = "Bot"
       end
     end
     return M.utils.stylize(text, opts)
@@ -532,8 +532,8 @@ end
 -- @usage local heirline_component = { provider = require("astronvim.utils.status").provider.ruler({ pad_ruler = { line = 3, char = 2 } }) }
 -- @see astronvim.utils.status.utils.stylize
 function M.provider.ruler(opts)
-  opts = extend_tbl({ pad_ruler = { line = 0, char = 0 } }, opts)
-  local padding_str = string.format("%%%dd:%%%dd", opts.pad_ruler.line, opts.pad_ruler.char)
+  opts = extend_tbl({ pad_ruler = { line = 3, char = 2 } }, opts)
+  local padding_str = string.format("%%%dd:%%-%dd", opts.pad_ruler.line, opts.pad_ruler.char)
   return function()
     local line = vim.fn.line "."
     local char = vim.fn.virtcol "."
@@ -1012,7 +1012,7 @@ function M.component.nav(opts)
     scrollbar = { padding = { left = 1 }, hl = { fg = "scrollbar" } },
     surround = { separator = "right", color = "nav_bg" },
     hl = M.hl.get_attributes "nav",
-    update = { "CursorMoved", "BufEnter" },
+    update = { "CursorMoved", "CursorMovedI", "BufEnter" },
   }, opts)
   return M.component.builder(M.utils.setup_providers(opts, { "ruler", "percentage", "scrollbar" }))
 end
@@ -1026,7 +1026,11 @@ function M.component.cmd_info(opts)
     macro_recording = {
       icon = { kind = "MacroRecording", padding = { right = 1 } },
       condition = M.condition.is_macro_recording,
-      update = { "RecordingEnter", "RecordingLeave" },
+      update = {
+        "RecordingEnter",
+        "RecordingLeave",
+        callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end),
+      },
     },
     search_count = {
       icon = { kind = "Search", padding = { right = 1 } },
@@ -1055,7 +1059,11 @@ function M.component.mode(opts)
     spell = false,
     surround = { separator = "left", color = M.hl.mode_bg },
     hl = M.hl.get_attributes "mode",
-    update = "ModeChanged",
+    update = {
+      "ModeChanged",
+      pattern = "*:*",
+      callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end),
+    },
   }, opts)
   if not opts["mode_text"] then opts.str = { str = " " } end
   return M.component.builder(M.utils.setup_providers(opts, { "mode_text", "str", "paste", "spell" }))
@@ -1178,7 +1186,7 @@ end
 -- @usage local heirline_component = require("astronvim.utils.status").component.treesitter()
 function M.component.treesitter(opts)
   opts = extend_tbl({
-    str = { str = "TS", icon = { kind = "ActiveTS" } },
+    str = { str = "TS", icon = { kind = "ActiveTS", padding = { right = 1 } } },
     surround = {
       separator = "right",
       color = "treesitter_bg",
