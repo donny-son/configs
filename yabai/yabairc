@@ -19,13 +19,13 @@ yabai -m config window_gap 6
 
 # Exceptions
 yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^Reminders$" manage=off
-yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
+# yabai -m rule --add app="^Reminders$" manage=off
+# yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
 yabai -m rule --add app="Settings$" manage=off
-yabai -m rule --add app="^Calender$" manage=off
+# yabai -m rule --add app="^Calender$" manage=off
 yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="Preferences$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^OpenVPN Connect$" manage=off
-yabai -m rule --add app="^zoom.us$" manage=off
+# yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^ExpressVPN$" manage=off
