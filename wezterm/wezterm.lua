@@ -14,7 +14,7 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = 'AdventureTime'
-config.font = wezterm.font("FiraCode NF")
+config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 15
 config.keys = {
 	-- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
