@@ -16,6 +16,27 @@
           "mouse_motion_to_scroll.speed": 100
         },
         "rules": [
+{
+            "description": "ESC to CapsLock",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "escape",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "caps_lock"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
           {
             "description": "CapsLock to Hyper/Shift to Escape",
             "manipulators": [
