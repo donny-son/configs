@@ -16,6 +16,11 @@ end
 config.color_scheme = 'AdventureTime'
 config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 15
+config.animation_fps = 120
+config.default_cursor_style = 'BlinkingBlock'
+config.cursor_blink_rate = 500
+config.cursor_blink_ease_in = 'Ease'
+config.cursor_blink_ease_out = 'Ease'
 config.keys = {
 	-- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
 	{ key = "LeftArrow",  mods = "OPT", action = wezterm.action { SendString = "\x1bb" } },
